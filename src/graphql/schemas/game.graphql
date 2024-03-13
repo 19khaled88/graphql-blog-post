@@ -1,0 +1,14 @@
+type Game {
+  id: ID
+  title: String
+}
+
+type Query {
+  getGames: [Game!]!
+}
+
+type Mutation {
+  createGame(title: String!): Game!
+  updateGame(id: ID!, title: String!): Game!
+  deleteGame(id: ID!): Game!
+}
