@@ -1,0 +1,33 @@
+{
+    "character":[
+        {
+            "id": 1,
+            "name": "khaled",
+            "race":"HYLIAN",
+            "games":[
+                "1",
+                "2"
+            ]
+
+        },
+        {
+            "id": 2,
+            "name": "khaled",
+            "race": "HYLIAN",
+            "games":[
+                "1"
+            ]
+
+        }
+    ],
+    "games":[
+        {
+            "id":1,
+            "title":"Football"
+        },
+        {
+            "id":2,
+            "title":"Cricket"
+        }
+    ]
+}

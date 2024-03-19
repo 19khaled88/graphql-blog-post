@@ -5,7 +5,7 @@ import { gql } from 'apollo-server-express';
 import fs from 'fs';
 import { DocumentNode } from 'graphql';
 import path from 'path';
-import resolvers from './resolvers/resolversMap';
+import resolvers from './resolvers';
 
 
 // Function to read the schema files and load them as DocumentNode

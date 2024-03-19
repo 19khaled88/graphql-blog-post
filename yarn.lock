@@ -514,6 +514,11 @@
     "@types/mime" "*"
     "@types/node" "*"
 
+"@wiicamp/graphql-merge-resolvers@^2.1.2":
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/@wiicamp/graphql-merge-resolvers/-/graphql-merge-resolvers-2.1.2.tgz#8e94bcf68bc717a6503515c8699d2f3cf00ed35e"
+  integrity sha512-AekkOQND5M89G/H0PKIRqyJQVs/oRgWwSLeOd/ltwIZBSMv/5GD6/6/KxMXaNNSYSoIy7XIlwsr4y3k9vGoerw==
+
 "@wry/caches@^1.0.0":
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/@wry/caches/-/caches-1.0.1.tgz#8641fd3b6e09230b86ce8b93558d44cf1ece7e52"
@@ -1071,6 +1076,11 @@ graphql-import-node@^0.0.5:
   version "0.0.5"
   resolved "https://registry.yarnpkg.com/graphql-import-node/-/graphql-import-node-0.0.5.tgz#caf76a6cece10858b14f27cce935655398fc1bf0"
   integrity sha512-OXbou9fqh9/Lm7vwXT0XoRN9J5+WCYKnbiTalgFDvkQERITRmcfncZs6aVABedd5B85yQU5EULS4a5pnbpuI0Q==
+
+graphql-merge-resolvers@^1.1.16:
+  version "1.1.16"
+  resolved "https://registry.yarnpkg.com/graphql-merge-resolvers/-/graphql-merge-resolvers-1.1.16.tgz#3247fa085fb1826ed43234e17e08b8e53a24c051"
+  integrity sha512-8173WP78XYkeZ3PsAHzFIySNeRZhcvvXUelBLJ15bp81ia0tlEWdFbnhrt6YWp4W58qFlUDkcTeqSuB9ULSSNg==
 
 graphql-tag@^2.11.0, graphql-tag@^2.12.6:
   version "2.12.6"

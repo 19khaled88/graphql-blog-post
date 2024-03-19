@@ -1,16 +1,29 @@
-type Query {
-  hello: String!
-  getCharacters: [Character]!
-}
-
 type Character {
   id: ID
   name: String
-  race: Race
+  race: Race 
+  games:[Game]
+}
+
+type Mutation {
+  createCharacter(character:NewCharacterInput) :String
+}
+
+type Query {
+  hello: String!
+  getCharacters: [Character]!
+  getCharacter(id:ID!):Character
 }
 
 enum Race {
   HYLIAN
   GERUDO
   FAIRY
+}
+
+
+input NewCharacterInput{
+   name: String!
+  race: Race !
+  games:[String!]!
 }

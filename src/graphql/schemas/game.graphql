@@ -7,6 +7,10 @@ type Query {
   getGames: [Game!]!
 }
 
+type Query{
+  gameHello:String
+}
+
 type Mutation {
   createGame(title: String!): Game!
   updateGame(id: ID!, title: String!): Game!
