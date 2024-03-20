@@ -1,18 +1,19 @@
 type Character {
   id: ID
   name: String
-  race: Race 
-  games:[Game]
+  race: Race
+  games: [Game]
+  image: String
 }
 
 type Mutation {
-  createCharacter(character:NewCharacterInput) :String
+  createCharacter(character: NewCharacterInput): String
 }
 
 type Query {
   hello: String!
   getCharacters: [Character]!
-  getCharacter(id:ID!):Character
+  getCharacter(id: ID!): Character
 }
 
 enum Race {
@@ -21,9 +22,9 @@ enum Race {
   FAIRY
 }
 
-
-input NewCharacterInput{
-   name: String!
-  race: Race !
-  games:[String!]!
+input NewCharacterInput {
+  name: String!
+  race: Race!
+  games: [String!]!
+  image: String!
 }
