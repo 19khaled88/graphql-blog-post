@@ -1,6 +1,7 @@
 import GMR from 'graphql-merge-resolvers'
 import { characterResolver } from './character'
 import { gameResolvers } from './game'
+import {developerResolvers} from './developer'
 
 // const resolvers:IResolvers = {
 //     Query: {
@@ -40,7 +41,8 @@ import { gameResolvers } from './game'
 
 const resolvers:any = GMR.merge([
     characterResolver,
-    gameResolvers
+    gameResolvers,
+    developerResolvers
 ])
 
 export default resolvers

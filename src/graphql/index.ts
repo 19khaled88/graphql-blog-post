@@ -20,15 +20,16 @@ const typeDefsArray = loadFilesSync(path.join(__dirname, './schemas'), { extensi
 
 const characterSchemaPath = path.join(__dirname, './schemas/character.graphql');
 const gameSchemaPath = path.join(__dirname, './schemas/game.graphql');
+const developerSchemaPath = path.join(__dirname, './schemas/developer.graphql');
 
 
 // Load schema files and convert them to DocumentNode
 const characterSchema: DocumentNode = loadSchemaFromFile(characterSchemaPath);
 const gameSchema: DocumentNode = loadSchemaFromFile(gameSchemaPath);
-
+const developerSchema: DocumentNode = loadSchemaFromFile(developerSchemaPath);
 
 // Merge all type definitions into a single schema definition
-const mergedTypeDefs = mergeTypeDefs([characterSchema, gameSchema]);
+const mergedTypeDefs = mergeTypeDefs([characterSchema, gameSchema,developerSchema]);
 
 // Provide the merged type definitions and resolvers to makeExecutableSchema
 export const schema = makeExecutableSchema({
