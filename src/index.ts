@@ -1,6 +1,7 @@
 import express, { Application } from 'express'
 import cors from 'cors'
 import {ApolloServer } from 'apollo-server-express'
+import {ApolloServerPluginLandingPageGraphQLPlayground} from 'apollo-server-core'
 import {schema} from './graphql'
 import MongoLib from './mongodb'
 import config from './config'
@@ -13,6 +14,7 @@ async function startServer(){
     const server = new ApolloServer({
         schema,
         introspection:true,
+        plugins:[ApolloServerPluginLandingPageGraphQLPlayground()],
         context:async()=>new MongoLib().connect()
         
     })

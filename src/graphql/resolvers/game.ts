@@ -26,7 +26,7 @@ export const gameResolvers:IResolvers ={
             const devList = parent.developers.map(async(id:string) =>
             await context.collection(DEVELOPER_COLLECTION).findOne({_id:new ObjectId(id)})
             )
-            console.log(devList)
+            // console.log(devList)
             return devList
         }
     }
