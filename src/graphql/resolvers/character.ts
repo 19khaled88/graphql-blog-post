@@ -1,6 +1,7 @@
 import { IResolvers } from "@graphql-tools/utils";
 import { Db, ObjectId } from "mongodb";
 import { CHARACTERS_COLLECTION, GAMES_COLLECTION } from "../../mongodb/collections";
+import {ICharacter} from '../../interfaces/ICharacter'
 export const characterResolver: IResolvers = {
   Query: {
     async getCharacters(root: void, args: void, context: Db) {
@@ -27,38 +28,47 @@ export const characterResolver: IResolvers = {
       // args.character.id = `${data.character.length + 1} `
       // data.character.push(args.character)
       try {
+        const regexp = new RegExp(args.character.name, 'i')
+        const exists = await context.collection(CHARACTERS_COLLECTION).findOne({name:regexp})
+        if(exists){
+            throw new Error('This character already exist')
+            return 'Character already exist'
+        }
         await context
           .collection(CHARACTERS_COLLECTION)
           .insertOne(args.character);
         return "Character added successflly";
-      } catch (error) {
+      } catch (error:any) {
+        return error.message
         console.log(error);
       }
     },
-    async editCharacter(root: void, args: any, context: Db) {
+    async editCharacter(root: void, {_id,character}:{_id:string,character:ICharacter}, context: Db) {
       try {
         const exists = await context
           .collection(CHARACTERS_COLLECTION)
-          .findOne({ _id: new ObjectId(args._id) });
+          .findOne({ _id: new ObjectId(_id) });
 
         if (exists) {
           await context
             .collection(CHARACTERS_COLLECTION)
             .updateOne(
-              { _id: new ObjectId(args._id) },
-              { $set: args.character }
+              { _id: new ObjectId(_id) },
+              { $set: character }
             );
           return "Character updated successfully";
         }
-      } catch (error) {
-        console.log(error);
+        throw new Error('Character does not exist')
+      } catch (error:any) {
+        return error.message
       }
     },
   },
+
   Character: {
-    async games(parent: any, args: void, context: any) {
+    async games(parent: ICharacter, args: void, context: any) {
       const gameList = parent.games.map(
-        async (gameId: string) =>
+        async (gameId) =>
           await context
             .collection(GAMES_COLLECTION)
             .findOne({ _id: new ObjectId(gameId) })
