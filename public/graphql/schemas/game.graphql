@@ -1,0 +1,25 @@
+type Game {
+  _id: ID
+  title: String
+}
+
+type Query {
+  getGames: [Game!]
+}
+
+type Game{
+  _id:ID
+  title:String 
+  developers:[Developer]
+}
+
+type Mutation {
+  createGame(game:NewGameInput):String!
+  updateGame(_id: ID!, title: String!): Game!
+  deleteGame(_id: ID!): Game!
+}
+
+input NewGameInput {
+  title:String! 
+  developers:[String!]!
+}
